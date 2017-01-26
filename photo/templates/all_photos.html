@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}All photos{% endblock %}
+
+{% block content %}
+    {% for user in users %}
+        <a href="/photos/{{ user.id }}/"><h3>{{ user.username }}</h3></a>
+        <table>
+            {% for photo in photos %}
+                {% if photo.photo_user_id == user.id %}
+                    <td><a href="/photo/{{ photo.id }}"><img src="{{ photo.photo.url }}" height="200"></a></td>
+                {% endif %}
+            {% endfor %}
+        </table>
+        <hr>
+    {% endfor %}
+{% endblock %}

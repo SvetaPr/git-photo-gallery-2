@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/photos/"><h2>Photo gallery</h2></a></li>
+        {% if username %}
+            <li><a href="/photos/">All accounts</a></li>
+            <li><a href="/photos/{{ userid }}">My account</a></li>
+            <li><a href="/auth/logout/">Log out ({{ username }})</a></li>
+        {% else %}
+            <li><a href="/auth/login/">Log in</a></li>
+        {% endif %}
+    </ul>
+    {% block content %}{% endblock %}
+    {% block login %}{% endblock %}
+</body>
+</html>
